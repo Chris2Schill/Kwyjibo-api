@@ -1,0 +1,249 @@
+<!Doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+    <div class="container">
+      <h3>This document was made to help test the server/database api during development of SoundNStein.</h3>
+
+      <ul class="nav nav-tabs nav-stacked">
+        <li role="presentation"><a href="#login">Login.aspx</a></li>
+        <li role="presentation" class="active"><a href="#addStation">AddStation.aspx</a></li>
+        <li role="presentation"><a href="#upload">UploadSoundClipToStation.aspx</a></li>
+        <li role="presentation"><a href="#removeClip">RemoveSoundClip.aspx</a></li>
+        <li role="presentation"><a href="#deleteClip">DeleteSoundClip.aspx</a></li>
+        <li role="presentation"><a href="#getStations">GetStations.aspx</a></li>
+        <li role="presentation"><a href="#getStationClips">GetStationSoundClips.aspx</a></li>
+        <li role="presentation"><a href="#deleteStation">DeleteStation.aspx</a></li>
+        <li role="presentation"><a href="#getSoundClip">GetSoundClip.aspx</a></li>
+      </ul>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/Login.aspx" target="loginIFrame">
+        <fieldset id="login">
+          <legend>Login</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="username">Username</label>
+              <input type="text" name="username" id="login_username" value=""/>
+              </p>
+              <p>
+              <label for="password">Password</label>
+              <input type="text" name="password" id="login_password" value=""/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='loginIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+     
+      <form class="navbar-form" action="http://www.motw.tech/api/AddStation.aspx" id="AddStationForm" method="POST" target="addStationIFrame">
+        <fieldset id="addStation">
+          <legend> Add Station </legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="stationName">Name</label>
+              <input type="text" name="stationName" id="addStation_stationName" value=""/>
+              </p>
+              <p>
+              <label for="createdBy">CreatedBy</label>
+              <input type="text" name="createdBy" id="addStation_createdBy" value="ApiHtml"/>
+              </p>
+              <p>
+              <label for="genre">Genre</label>
+              <input type="text" name="genre" id="genre" value="Jazz"/>
+              </p>
+              <p>
+              <label for="maxNumClips">MaxNumClips</label>
+              <input type="text" name="maxNumClips" id="maxNumClips" value="10"/>
+              </p> 
+              <p>
+              <label for="bpm">BPM</label>
+              <input type="text" name="bpm" id="bpm" value="60"/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='addStationIFrame'></iframe>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/UploadSoundClipToStation.aspx" method="post" enctype="multipart/form-data" target="uploadSoundClipIFrame">
+        <fieldset id="upload">
+          <legend>Upload Sound Clip</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="stationId">StationId</label>
+              <input type="text" name="stationId" id="stationId" value=""/>
+              </p>
+              <p>
+              <label for="clipName">ClipName</label>
+              <input type="text" name="clipName" id="clipName" value="html clip"/>
+              </p>
+              <p>
+              <label for="createdById">CreatedById</label>
+              <input type="text" name="createdById" id="createdById" value="1"/>
+              </p>
+              <p>
+              <label for="category">Category</label>
+              <input type="text" name="category" id="category" value="1"/>
+              </p>
+              <p>
+              <label for="location">Location</label>
+              <input type="text" name="location" id="location" value="Orlando"/>
+              </p>
+              <p>
+              <label for="size_3">ToStation</label>
+              <input type="text" name="toStation" id="toStation" value="1"/>
+              </p> 
+              <p>
+              <label for="size_3">SoundClip</label>
+              <input type="file" name="boof3" id="boof3" value="@bassdrum_1.wav"/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+                <iframe name='uploadSoundClipIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+
+      <form class="navbar-form" action="http://www.motw.tech/api/RemoveSoundClip.aspx" target="removeIFrame">
+        <fieldset id="removeClip">
+          <legend>Remove Sound Clip</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="stationId">StationId</label>
+              <input type="text" name="stationId" id="remove_stationId" value=""/>
+              </p>
+              <p>
+              <label for="soundClipId">SoundClipId</label>
+              <input type="text" name="soundClipId" id="remove_SoundClipId" value=""/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='removeIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+
+      <form class="navbar-form" action="http://www.motw.tech/api/DeleteSoundClip.aspx" target="deleteIFrame">
+        <fieldset id="deleteClip">
+          <legend>Delete Sound Clip</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="soundClipId">SoundClipId</label>
+              <input type="text" name="soundClipId" id="delete_SoundClipId" value=""/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='deleteIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/GetStations.aspx" target="getStationsIFrame">
+        <fieldset id="getStations">
+          <legend>Get Stations</legend>
+          <div class="form">
+            <div class="content">
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='getStationsIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/GetStationSoundClips.aspx" target="getStationSoundClipsIFrame">
+        <fieldset id="getStationClips">
+          <legend>Get Station Sound Clips</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="stationId">Station Id</label>
+              <input type="text" name="stationId" id="getStationSoundClips_stationId" value=""/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='getStationSoundClipsIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/DeleteStation.aspx" target="deleteStationIFrame">
+        <fieldset id="deleteStation">
+          <legend>Delete Station</legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="stationId">Station Id</label>
+              <input type="text" name="stationId" id="deleteStation_stationId" value=""/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='deleteStationIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <script src="scripts.js"></script>
+
+      <form class="navbar-form" action="http://www.motw.tech/api/GetSoundClip.aspx" target="getSoundClipIFrame">
+        <fieldset id="getSoundClip">
+          <legend>Get Sound Clip </legend>
+          <div class="form">
+            <div class="content">
+              <p>
+              <label for="clipId">Sound Clip Id</label>
+              <input type="text" name="clipId" id="getSoundClip_clipId" value="1"/>
+              </p> 
+              <input type="submit" value="Submit">
+            </div>
+
+            <div class="content">
+              <iframe name='getSoundClipIFrame'></iframe>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+      <script src="js/scripts.js"></script>
+
+    </div>
+  </body>
+</html>
